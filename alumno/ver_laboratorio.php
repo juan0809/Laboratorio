@@ -22,6 +22,16 @@ $tareas = $query->fetchAll();
 ?>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editor.css">
+<!-- Cargar el CSS de Boostrap-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://jmblog.github.io/color-themes-for-highlightjs/css/themes/hemisu-light.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css" />
+<!-- Include the CodeMirror JavaScript files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/clike/clike.min.js"></script>
 
 <main class="app-content">
   <div class="app-title">
@@ -66,15 +76,36 @@ $tareas = $query->fetchAll();
             <a href="Lista_Laboratorios.php" class="btn btn-info">
           Probar</a>
         <?php } ?>
-        <br/>
         <?php if (!empty($tarea['codigou'])) { ?>
-           <strong> <p>Código U:</p></strong>
-            <textarea name="code_codigo" id="" cols="80" rows="10"><?= $tarea['codigou']; ?></textarea> 
-        <?php } ?>
+        <p>Código U:</p>
+        <div class="editor-div">
+            <button class="run" id="run">Run</button>
+          <textarea id="editor"> <?= $tarea['codigou']; ?> </textarea>
+        </div>
+        <h3 class="output-header">Output</h3>
+        <p class="code_output" id="code_output"></p>
+        <ul id="string-list"></ul>
+         <script>
+          editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "text/x-java",
+            lineNumbers: true,
+          });
+          editor.setSize("600", "600");
+        </script>
+        <!-- This is for getting the content o the test -->
+        <div id="dom-target" style="display: none;">
+          <?php
+          $output = $tarea['codigou'];
+          echo htmlspecialchars($output);
+          ?>
+        </div>
+        
+      <?php } ?>
     <?php } ?>
-    </div>
+  </div>
 
 </main>
+ <script src="js/script.js"></script>
 
 <?php
 require_once 'includes/footer.php';
