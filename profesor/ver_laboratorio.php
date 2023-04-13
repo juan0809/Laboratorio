@@ -22,6 +22,7 @@ $tareas = $query->fetchAll();
 ?>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editor.css">
 <!-- Cargar el CSS de Boostrap-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
@@ -94,7 +95,9 @@ $tareas = $query->fetchAll();
       <?php if (!empty($tarea['codigou'])) { ?>
         <p>Código U:</p>
         <div class="editor-div">
-          <textarea id="editor" cols="100" rows="20"> <?= $tarea['codigou']; ?> </textarea>
+          <textarea id="editor" cols="100" rows="15"> </textarea>
+          <br/>
+          <button class="run" id="run">Run</button>
         </div>
         <h3 class="output-header">Output</h3>
         <p class="code_output" id="code_output"></p>
@@ -104,13 +107,21 @@ $tareas = $query->fetchAll();
             mode: "text/x-java",
             lineNumbers: true,
           });
-          editor.setSize("600", "600");
+          editor.setSize("600", "350");
         </script>
+          <!-- This is for getting the content o the test -->
+          <div id="dom-target" style="display: none;">
+          <?php
+          $output = $tarea['codigou'];
+          echo htmlspecialchars($output);
+          ?>
+        </div>
       <?php } ?>
     <?php } ?>
   </div>
 
 </main>
+<script src="js/script.js"></script>
 
 <?php
 require_once 'includes/footer.php';

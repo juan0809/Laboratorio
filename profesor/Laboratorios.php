@@ -2,14 +2,17 @@
 require_once 'includes/header.php';
 require_once 'includes/modals/modal_laboratorio.php';
 $idprofesor = $_SESSION['profesor_id'];
-
-$sql = "SELECT * FROM profesor_materia as pm 
-INNER JOIN profesor as p ON pm.profesor_id = p.profesor_id 
-INNER JOIN materias as m ON pm.materia_id = m.materia_id WHERE pm.estadopm !=0 AND pm.profesor_id =
-$idprofesor";
-$query = $pdo->prepare($sql);
-$query->execute();
-$row = $query->rowCount();
+if (!empty($_GET['curso'])) {
+    $curso = $_GET['curso'];
+  } else {
+    $sql = "SELECT * FROM profesor_materia as pm 
+    INNER JOIN profesor as p ON pm.profesor_id = p.profesor_id 
+    INNER JOIN materias as m ON pm.materia_id = m.materia_id WHERE pm.estadopm !=0 AND pm.profesor_id =
+    $idprofesor";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $row = $query->rowCount();
+    }
 ?>
 
 <main class="app-content">
@@ -46,11 +49,17 @@ $row = $query->rowCount();
                             <b> <label for="titulo">Título :</label></b>
                             <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Título">
                         </div>
+                        <?php if (!empty($_GET['curso'])) {
+                                ?>
+                            <input type="hidden" name="materias" id="materias" value="<?php echo $_GET['curso']; ?>">
+
+                        <?php 
+                        } ?>
                         <?php if ($row > 0) {
                             while ($data = $query->fetch()) {
                                 ?>
                                 <div class="form-group col-12">
-                                    <label for="materias">Choose an option:</label>
+                                <b><label for="materias">Escoja una materia:</label></b>
                                     <select class="form-control" id="materias" name="materias">
                                         <option value=""></option>
                                         <option value="<?= $data['materia_id']; ?>"><?= $data['nombre_materia']; ?></option>

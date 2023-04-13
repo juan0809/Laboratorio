@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Platform Suite" tests="0" skipped="0" failures="0" errors="0" time="0.001" hostname="DESKTOP-4VGDFMI" timestamp="2023-04-13T12:47:17">
+<properties>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="\"/>
+<property name="java.class.path" value="./files/java/jars/junit-platform-console-standalone-1.9.2.jar"/>
+<property name="java.class.version" value="64.0"/>
+<property name="java.home" value="C:\Program Files\Java\jdk-20"/>
+<property name="java.io.tmpdir" value="C:\Users\chiaa\AppData\Local\Temp\"/>
+<property name="java.library.path" value="C:\Program Files\Java\jdk-20\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\chiaa\vendor\bin;C:\Python310\;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Go\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\sqlite;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\chiaa\AppData\Local\Microsoft\WindowsApps;C:\Users\chiaa\AppData\Local\Programs\Microsoft VS Code\bin;D:\src\flutter\bin;C:\Users\chiaa\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Users\chiaa\.dotnet\tools;C:\Users\chiaa\go\bin;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\chiaa\Documents\MONGO\mongosh-1.6.2-win32-x64\bin;C:\Program Files\PostgreSQL\15\bin;C:\tools\dart-sdk\bin;C:\Users\chiaa\AppData\Roaming\Pub\Cache\bin;C:\Users\chiaa\AppData\Local\GitHubDesktop\bin;C:\Program Files\sqlite;C:\xampp\php;C:\Users\chiaa\AppData\Local\ComposerSetup\bin;C:\Users\chiaa\AppData\Roaming\Composer\vendor\bin;C:\Users\chiaa\vendor\bin;;."/>
+<property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+<property name="java.runtime.version" value="20+36-2344"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="20"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="https://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+<property name="java.version" value="20"/>
+<property name="java.version.date" value="2023-03-21"/>
+<property name="java.vm.compressedOopsMode" value="Zero based"/>
+<property name="java.vm.info" value="mixed mode, sharing"/>
+<property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="20"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="20+36-2344"/>
+<property name="jdk.debug" value="release"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="Cp1252"/>
+<property name="os.arch" value="amd64"/>
+<property name="os.name" value="Windows 11"/>
+<property name="os.version" value="10.0"/>
+<property name="path.separator" value=";"/>
+<property name="stderr.encoding" value="Cp1252"/>
+<property name="stdout.encoding" value="Cp1252"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value="amd64"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="./files/java/jars/junit-platform-console-standalone-1.9.2.jar -cp ./files/java/classes/ --select-class CodeTest --reports-dir=./files/java/reports"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="Cp1252"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value=""/>
+<property name="user.country" value="CO"/>
+<property name="user.dir" value="C:\xampp\htdocs\Laboratorio\profesor"/>
+<property name="user.home" value="C:\Users\chiaa"/>
+<property name="user.language" value="es"/>
+<property name="user.name" value="chiaa"/>
+<property name="user.script" value=""/>
+<property name="user.timezone" value="America/Bogota"/>
+<property name="user.variant" value=""/>
+</properties>
+<system-out><![CDATA[
+unique-id: [engine:junit-platform-suite]
+display-name: JUnit Platform Suite
+]]></system-out>
+</testsuite>

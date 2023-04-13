@@ -80,7 +80,7 @@ $tareas = $query->fetchAll();
         <p>Código U:</p>
         <div class="editor-div">
             <button class="run" id="run">Run</button>
-          <textarea id="editor"> <?= $tarea['codigou']; ?> </textarea>
+          <textarea id="editor"> </textarea>
         </div>
         <h3 class="output-header">Output</h3>
         <p class="code_output" id="code_output"></p>
@@ -90,7 +90,7 @@ $tareas = $query->fetchAll();
             mode: "text/x-java",
             lineNumbers: true,
           });
-          editor.setSize("600", "600");
+          editor.setSize("600", "350");
         </script>
         <!-- This is for getting the content o the test -->
         <div id="dom-target" style="display: none;">

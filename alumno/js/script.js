@@ -39,7 +39,6 @@ $("#run").on("click", function () {
             xhr1.open('GET', './files/java/reports/default/MiClase.java.html');
             xhr1.onload = function () {
                 if (xhr1.status === 200) {
-                    console.log("hombre que pasho");
                     parser = new DOMParser();
                     var doc = parser.parseFromString(xhr1.responseText, "text/html");
                     const collectionGreen = doc.getElementsByClassName("fc");
@@ -81,18 +80,17 @@ $("#run").on("click", function () {
                         const failure = collectionGreen[i].getElementsByTagName("failure")[0];
                         if (failure) {
                             const msg = failure.getAttribute("message");
-                            mensajesOutput.push(`${testcase + ' ' + msg}`);
+                            mensajesOutput.push(` <b style="color:red;">Failure</b> ${testcase + ' '} <b>${msg}</b>`);
                         } else {
-                            mensajesOutput.push(`${testcase + ' ' + 'OK'}`);
+                            mensajesOutput.push(`<b style="color:green;">OK</b> ${testcase + ' '}`);
                         }
-                        console.log(mensajesOutput);
                     }
 
                     const stringList = document.getElementById('string-list');
                     stringList.innerHTML = '';
                     mensajesOutput.forEach((str) => {
                         const li = document.createElement('li');
-                        li.textContent = str;
+                        li.innerHTML = str;
                         stringList.appendChild(li);
                     });
                 } else {

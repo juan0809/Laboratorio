@@ -1,4 +1,4 @@
-public class MiClase {
+        public class MiClase {
 
     public int numero_mayor(int a, int b, int c){
         return 7;
