@@ -109,3 +109,7 @@ body {
 .app-sidebar__toggle::before {
     display: none;
 }
+
+.string-list {
+    padding: 20px;
+}

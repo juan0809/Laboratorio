@@ -33,7 +33,7 @@
           <?php if($row > 0){
                   while($data = $query->fetch()){
               ?>
-                <li><a class="treeview-item" href="contenido.php?curso=<?= $data['pm_id']?>"><i class="icon fa fa-cicle-o"></i><?= $data['nombre_materia'];?></a></li>
+                <li><a class="treeview-item" href="Lista_Laboratorios_Materia.php?curso=<?= $data['materia_id']?>"><i class="icon fa fa-cicle-o"></i><?= $data['nombre_materia'];?></a></li>
                 <li><a class="treeview-item" href="Lista_Laboratorios.php"></i><span class="app-menu__label">Laboratorios</span>
               </a></a></li>
                 

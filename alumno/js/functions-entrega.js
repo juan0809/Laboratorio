@@ -1,4 +1,3 @@
-console.log("Hola");
 document.addEventListener('DOMContentLoaded',function(){
     var formEntrega = document.querySelector('#formEntrega');
         formEntrega.onsubmit = function(e){
