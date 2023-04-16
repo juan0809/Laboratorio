@@ -17,3 +17,7 @@
     flex-direction:column;
     align-content: space-between;
   }
+
+  .string-list {
+      padding: 20px;
+  }

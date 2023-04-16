@@ -89,33 +89,28 @@ $tareas = $query->fetchAll();
 
       <?php if (!empty($tarea['codigo'])) { ?>
         <p>Código</p>
-        <textarea name="code_codigo" id="" cols="50" rows="10"><?= $tarea['codigo']; ?></textarea>
+        <textarea name="code_codigo" id="code_codigo" cols="50" rows="10"><?= $tarea['codigo']; ?></textarea>
       <?php } ?>
 
       <?php if (!empty($tarea['codigou'])) { ?>
-        <p>Código U:</p>
-        <div class="editor-div">
-          <textarea id="editor" cols="100" rows="15"> </textarea>
-          <br/>
-          <button class="run" id="run">Run</button>
-        </div>
-        <h3 class="output-header">Output</h3>
-        <p class="code_output" id="code_output"></p>
-        <ul id="string-list"></ul>
-        <script>
-          editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-            mode: "text/x-java",
-            lineNumbers: true,
-          });
-          editor.setSize("600", "350");
-        </script>
+        <div>
+          <p>Código U:</p>
+          <div class="editor-div">
+            <textarea id="editor" cols="100" rows="15"> </textarea>
+            <br/>
+            <button class="run" name="run">Run</button>
+          </div>
+          <h3 class="output-header">Output</h3>
+          <p class="code_output" id="code_output"></p>
+          <ul name="string-list" class = "string-list"></ul>
           <!-- This is for getting the content o the test -->
           <div id="dom-target" style="display: none;">
-          <?php
+            <?php
           $output = $tarea['codigou'];
           echo htmlspecialchars($output);
           ?>
         </div>
+      </div>
       <?php } ?>
     <?php } ?>
   </div>

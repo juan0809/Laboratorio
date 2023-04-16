@@ -110,6 +110,6 @@ body {
     display: none;
 }
 
-#string-list {
+.string-list {
     padding: 20px;
 }

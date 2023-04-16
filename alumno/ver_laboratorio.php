@@ -58,54 +58,56 @@ $tareas = $query->fetchAll();
   </div>
 
   <!-- Lista de tareas -->
-    <div>
+  <div>
     <?php foreach ($tareas as $tarea) { ?>
-        <?php if (!empty($tarea['titulo_tarea'])) { ?>
-            <h5><?= $tarea['titulo_tarea']; ?></h5>
-        <?php } ?>
-        <br/>
-        <?php if (!empty($tarea['imagen_tarea'])) { ?>
-          <img src="../profesor/images/tareas/<?=$tarea['imagen_tarea'] ?>" width="45%" style="margin: 0 auto;" <?= $tarea['titulo_tarea']; ?>">
-        <?php } ?>
-        <?php if (!empty($tarea['descripcion_tarea'])) { ?>
-            <p><?= $tarea['descripcion_tarea']; ?></p>
-        <?php } ?>
-        <?php if (!empty($tarea['codigo'])) { ?>
-          <strong> <p>Código:</p></strong>
-            <textarea name="code_codigo" id="" cols="80" rows="10"><?= $tarea['codigo']; ?></textarea>
-            <a href="Lista_Laboratorios.php" class="btn btn-info">
-          Probar</a>
-        <?php } ?>
-        <?php if (!empty($tarea['codigou'])) { ?>
-        <p>Código U:</p>
-        <div class="editor-div">
-            <button class="run" id="run">Run</button>
-          <textarea id="editor"> </textarea>
-        </div>
-        <h3 class="output-header">Output</h3>
-        <p class="code_output" id="code_output"></p>
-        <ul id="string-list"></ul>
-         <script>
-          editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-            mode: "text/x-java",
-            lineNumbers: true,
-          });
-          editor.setSize("600", "350");
-        </script>
-        <!-- This is for getting the content o the test -->
-        <div id="dom-target" style="display: none;">
-          <?php
+      <?php if (!empty($tarea['titulo_tarea'])) { ?>
+        <h5>Tarea:
+          <?= $tarea['titulo_tarea']; ?>
+        </h5>
+      <?php } ?>
+
+      <?php if (!empty($tarea['imagen_tarea'])) { ?>
+        <img src="images/tareas/<?= $tarea['imagen_tarea'] ?>" width="25%" alt="<?= $tarea['titulo_tarea']; ?>">
+      <?php } ?>
+
+      <?php if (!empty($tarea['descripcion_tarea'])) { ?>
+        </H2>
+        <p>
+          <?= $tarea['descripcion_tarea']; ?>
+        </p>
+        </H2>
+      <?php } ?>
+
+      <?php if (!empty($tarea['codigo'])) { ?>
+        <p>Código</p>
+        <textarea name="code_codigo" id="code_codigo" cols="50" rows="10"><?= $tarea['codigo']; ?></textarea>
+      <?php } ?>
+
+      <?php if (!empty($tarea['codigou'])) { ?>
+        <div>
+          <p>Código U:</p>
+          <div class="editor-div">
+            <textarea id="editor" cols="100" rows="15"> </textarea>
+            <br/>
+            <button class="run" name="run">Run</button>
+          </div>
+          <h3 class="output-header">Output</h3>
+          <p class="code_output" id="code_output"></p>
+          <ul name="string-list" class = "string-list"></ul>
+          <!-- This is for getting the content o the test -->
+          <div id="dom-target" style="display: none;">
+            <?php
           $output = $tarea['codigou'];
           echo htmlspecialchars($output);
           ?>
         </div>
-        
+      </div>
       <?php } ?>
     <?php } ?>
   </div>
 
 </main>
- <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 
 <?php
 require_once 'includes/footer.php';
