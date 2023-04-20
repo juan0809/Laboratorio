@@ -47,9 +47,9 @@ fclose($codefileTest);
 
 
 // <----- Primero compilamos las clases ----->
-$commond = 'javac -cp "./files/java/jars/junit-platform-console-standalone-1.9.2.jar" ./files/java/classes/*.java';
-$output = shell_exec($commond);
-
+$compilarClases = 'javac -cp "./files/java/jars/junit-platform-console-standalone-1.9.2.jar" ./files/java/classes/*.java 2>&1';
+$compilarClasesOutput = shell_exec($compilarClases);
+// echo $compilarClasesOutput;
 // <----- Ahora creamos el .exec ----->
 $commond = 'java -javaagent:./files/java/jacoco/lib/jacocoagent.jar=output=file -jar "./files/java/jars/junit-platform-console-standalone-1.9.2.jar" -cp "./files/java/classes" --scan-classpath';
 $output = shell_exec($commond);
@@ -62,6 +62,6 @@ $output = shell_exec($commond);
 $commond = 'java -jar "./files/java/jars/junit-platform-console-standalone-1.9.2.jar" -cp "./files/java/classes/" --scan-classpath --reports-dir=./files/java/reports';
 $junitout = shell_exec($commond);
 
-
-echo $codeFileName;
+// echo $codeFileName;
+echo json_encode(array("fileName" => $codeFileName, "error" => $compilarClasesOutput ));
 ?>
