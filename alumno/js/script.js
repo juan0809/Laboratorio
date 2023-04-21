@@ -43,7 +43,6 @@ function buttonClickHandler() {
     let code = editor_acual.getValue();
     const parentNode = prevSibling.parentNode;
     let myData = parentNode.querySelector("#dom-target").textContent;
-
     $.ajax({
         url: "server_java.php",
         method: "POST",
@@ -52,10 +51,26 @@ function buttonClickHandler() {
             input: myData
         },
         success: function (response) {
+            editor_acual.doc.getAllMarks().forEach(marker => marker.clear());
+            $("#code_output").html("");
+            var myData = JSON.parse(response);
+            var errorsSplit = myData.error?.split("files\\java\\classes\\");
+            if (errorsSplit !== undefined && errorsSplit.length >= 1) {
+                for (let i = 1; i < errorsSplit.length; i++) {
+                    var singleError = errorsSplit[i].split(":");
+                    var lineError = singleError[1];
+                    if (parseInt(lineError)) {
+                        let range = { start: { line: lineError - 1, ch: 0 }, end: { line: lineError, ch: 0 }, style: "background-color: #FFA09F;" };
+                        editor_acual.markText(range.start, range.end, { css: range.style });
+                    }
+                }
+                $("#code_output").html(myData.error.replace(/;/g, ";</br>"));
+
+            }
             const redLines = []
             const greenLines = []
             const xhr1 = new XMLHttpRequest();
-            xhr1.open('GET', `./files/java/reports/default/${response}.java.html`);
+            xhr1.open('GET', `./files/java/reports/default/${myData.fileName}.java.html`);
             xhr1.onload = function () {
                 if (xhr1.status === 200) {
                     parser = new DOMParser();
@@ -93,6 +108,7 @@ function buttonClickHandler() {
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(xhr2.responseText, "text/xml");
                     const collectionGreen = xmlDoc.getElementsByTagName("testcase");
+
                     const mensajesOutput = [];
                     for (let i = 0; i < collectionGreen.length; i++) {
                         const testcase = collectionGreen[i].getAttribute("name");
@@ -131,7 +147,7 @@ function buttonClickHandler() {
             };
             xhr2.send();
 
-            //JUNIT 4 report
+            //legacy
             const xhrRetry = new XMLHttpRequest();
             xhrRetry.open('GET', `./files/java/reports/TEST-junit-vintage.xml`);
             xhrRetry.onload = function () {
@@ -158,17 +174,19 @@ function buttonClickHandler() {
                             mensajesOutput.push(`<b style="color:green;">OK</b> ${testcase + ' '}`);
                         }
                     }
-
                     const stringList = parentNode.querySelector("[name=string-list]");
-                    // stringList.innerHTML = '';
-                    mensajesOutput.forEach((str) => {
-                        console.log(str);
-                        console.log('1');
+                    for (let i = 0; i < mensajesOutput.length; i++) {
                         const li = document.createElement('li');
-                        li.innerHTML = str;
+                        // Create a new b element
+                        const bElement = document.createElement('p');
+                        // Set the innerHTML of the b element to the string containing b tags
+                        bElement.innerHTML = mensajesOutput[i];
+                        // Append the b element to the li element
+                        li.appendChild(bElement);
+                        // li.innerHTML = str;
                         stringList.appendChild(li);
-                        console.log(stringList);
-                    });
+                    }
+                    console.log(stringList);
                 } else {
                     console.log("Error retrieving file 2");
                 }
